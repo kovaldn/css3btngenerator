@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+  <![endif]-->
+  <!--[if IE 7]>
+  <html class="no-js lt-ie9 lt-ie8">
+    <![endif]-->
+    <!--[if IE 8]>
+    <html class="no-js lt-ie9">
+      <![endif]-->
+      <!--[if gt IE 8]>
+      <!-->
+      <html class="no-js">
+        <!--<![endif]-->
+<head>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script>//WTF? не работает здесь в режиме эмуляции IE</script>
+        <script src="/js/vendor/respond.min.js"></script>
+        <![endif]-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <title>Лопарев Дмитрий, Д/З №3</title>
+
+        <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.min.css"> -->
+        <link rel="stylesheet" href="css/main.min.css">
+
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <link rel="stylesheet" href="js/vendor/jquery-ui-1.11.0.custom/jquery-ui.css">        
+        <link rel="stylesheet" href="css/jqueryui.theme.min.css">        
+</head>
+<body>
+        <div class = "wrapper">
+          <section class = "maincontent">
+            <div class="container">
+              <h1>CSS 3 Button Generator</h1>
+              <div class="row">
+                <div class="col-xs-6">
+                    <h2>Параметры</h2>
+                    <div class="wrapoption">
+                      <span class="value" id="value-option-border-radius"></span>
+                        Border-radius: <div id="border-radius" class="option options_slider"></div>
+                    </div>
+
+                    <div class="wrapoption">
+                      <span class="value" id="value-option-border-size"></span>
+                      Border-size: <div id="border-size" class="option options_slider"></div>
+                    </div>
+                    Text: <input type="text" id="text_btn" class="options">
+                </div>
+                <div class="col-xs-6">
+                  <h2>Результат</h2>
+                  <div class="wrapbtn">
+                    <button id="result_btn">text</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="code">
+            <div class="container">
+              <form action="">
+              <div class="wraparea">
+                <textarea class="" name="" id="html_code" cols="30" rows="10"></textarea>
+                <textarea class="" name="" id="css_code" cols="30" rows="10"></textarea>
+              </div>
+              <div class="text-center">
+                <input type="text" required>
+                <button type="submit">Отправить</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </div>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="js/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/vendor/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
+    <!--<script src="js/main.min.js"></script>-->
+    <script src="source/js/main.js"></script>
+</body>
+  </html>
