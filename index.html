@@ -41,13 +41,20 @@
                 <div class="col-xs-6">
                     <h2>Параметры</h2>
                     <div class="wrapoption">
-                      <span class="value" id="value-option-border-radius"></span>
-                        Border-radius: <div id="border-radius" class="option options_slider"></div>
+                      <span class="value" id="value-option_border-radius"></span>
+                        Border-radius: <div id="option-border-radius" data-functioninit="option_border_radius" class="option option-slide"></div>
                     </div>
 
                     <div class="wrapoption">
-                      <span class="value" id="value-option-border-size"></span>
-                      Border-size: <div id="border-size" class="option options_slider"></div>
+                      Тип бордера: 
+                      <select name="" id="">
+                          <option value="">Solid</option>
+                          <option value="">Dashed</option>
+                          <option value="">Dotted</option>  
+                      </select>  
+                      Цвет: <input type="text"/>
+                      <span class="value" id="value-option_border"></span>
+                      Border-size: <div id="option-border-size" data-functioninit="option_border" class="option option-slide"></div>
                     </div>
                     Text: <input type="text" id="text_btn" class="options">
                 </div>

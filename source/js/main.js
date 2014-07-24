@@ -1,4 +1,48 @@
-var cur_data = {};
+(function(){
+
+    var app = {
+        /*---переменные---*/
+        var: {
+            $btn: $('#result_btn'), //кнопка которую будем менять
+            cur_data : {}, //объект хринит копии объектов css свойств текущего соствояния
+            //настройки по умолчанию
+            default_data: {
+
+            },
+            //элементы с которыми будем работаь (бегунки и пр.)
+            $border_radius: $('#option-border-radius'),
+            $border_size: $('#option-border-size')
+        },
+        init: function(){
+            this.var.$border_radius.slider({
+                range: "max",
+                min: 0,
+                max: 40,
+                step: 1
+            });
+            this.var.$border_size.slider({
+                range: "max",
+                min: 0,
+                max: 40,
+                step: 1
+            });
+            this.events();
+        },
+        events: function(){
+            this.var.$border_radius.on( "slide", this.option_border_radius);
+            this.var.$border_size.on( "slide", this.option_border_size);
+        },
+        option_border_radius: function(e, ui){
+            console.log(ui.value);
+        },
+        option_border_size: function(e, ui){
+            console.log(ui.value);
+        }
+    }
+
+   app.init();
+}());
+/*var cur_data = {};
 $(document).ready(function(){
 	
 	var $btn = $('#result_btn');
@@ -12,7 +56,7 @@ $(document).ready(function(){
 	}
 
 	$( "#border-radius" ).slider({
-		range: "min",
+		range: "max",
 		min: 0, 
 		max: 40,
 		step: 1,
@@ -26,7 +70,7 @@ $(document).ready(function(){
 	});
 
 	$( "#border-size" ).slider({
-		range: "min",
+		range: "max",
 		min: 0, 
 		max: 40,
 		step: 1,
@@ -71,3 +115,4 @@ function get_css(){
 	});
 	console.log(str);
 }
+*/
