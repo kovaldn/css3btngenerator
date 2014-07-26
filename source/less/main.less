@@ -4,6 +4,7 @@
 
 body{
 	font-family: @myr;
+    background: url(../img/irongrip.png);
 }
 h1{
 	text-align: center;
@@ -22,10 +23,14 @@ h2{
 .wraparea{
 	text-align: center;
 }
+.wrapoption{
+  position: relative;
+}
 .option{
-	margin-bottom: 30px;	
+
 }
 .colorpicker-wrap{
+  display: inline-block;
   .preview-color{
     width: 30px;
     height: 30px;
@@ -34,5 +39,34 @@ h2{
     position: relative;
     border-radius: 5px;
     cursor: pointer;
+    vertical-align: middle;
+  }
+}
+.wrap-code{
+
+}
+.panel-heading{
+  cursor: pointer;
+  background: url(../img/random_grey_variations.png);
+  &.active{
+    background: url(../img/brushed_alu_dark.png);
+  }
+  h4{
+    font-size: 20px;
+    color: #ededed;
+  }
+}
+.panel-body{
+  background: url(../img/irongrip.png);
+  padding-right: 34px;
+  label{
+    font-family: consolas, monospace;
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 10px;
+    .value{
+      color: #C32472;
+      text-shadow: 1px 2px 1px #000;
+    }
   }
 }

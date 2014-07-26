@@ -25,7 +25,7 @@ var targetJS = 'js';
 var files = {
 	less: [
 		['main.less', 'main.min.css'],
-		['jqueryui.theme.less', 'jqueryui.theme.min.css']
+		['jqueryui.theme.less', 'ui/jqueryui.theme.min.css']
 	],
 	js: [
 		//['main.js', 'main.min.js']
@@ -55,5 +55,6 @@ gulp.task('js', function() {
 // Watch for LESS and JS changes and run the respective compilers automatically
 gulp.task('watch', function () {
     gulp.watch(sourceLESS + '/main.less', ['less']);
+    gulp.watch(sourceLESS + '/jqueryui.theme.less', ['less']);
     //gulp.watch(sourceJS + '/main.js', ['js']);
 });

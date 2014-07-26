@@ -29,9 +29,10 @@
         <link rel="stylesheet" href="css/main.min.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <link rel="stylesheet" href="js/vendor/jquery-ui-1.11.0.custom/jquery-ui.css">        
-        <link rel="stylesheet" href="css/jqueryui.theme.min.css">
+        <!--<link rel="stylesheet" href="css/ui/jquery-ui.min.css">-->
+        <link rel="stylesheet" href="css/ui/jqueryui.theme.min.css">
         <link rel="stylesheet" href="css/colorpicker/colorpicker.css">
+        <link rel="stylesheet" href="css/prism.css">
 </head>
 <body>
         <div class = "wrapper">
@@ -41,26 +42,69 @@
               <div class="row">
                 <div class="col-xs-6">
                     <h2>Параметры</h2>
-                    <div class="wrapoption">
-                      <span class="value" id="value-option-border-radius"></span>
-                        Border-radius: <div id="option-border-radius" class="option option-slide"></div>
-                    </div>
+                    <!--аккордион с вкладками-->
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <h4 class="panel-title">Font/Text</h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Text: <input type="text" id="option-btn-text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                <h4 class="panel-title">Border</h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <!--опции border-->
+                                    <div class="wrapoption">
+                                        <label>Border-radius: <span class="value" id="value-option-border-radius"></span></label>
+                                        <div id="option-border-radius" class="option-slide"></div>
+                                    </div>
 
-                    <div class="wrapoption">
-                      Тип бордера: 
-                      <select name="" id="option-border-style">
-                          <option value="solid">Solid</option>
-                          <option value="dashed">Dashed</option>
-                          <option value="dotted">Dotted</option>
-                      </select>
-                      <span class="value" id="value-option-border-size"></span>
-                      Border-size: <div id="option-border-size" class="option option-slide"></div>
-                        <div class="colorpicker-wrap">
-                            Цвет: <div class="preview-color" data-value="border-color"></div>
-                            <input id="option-border-color" type="hidden">
+                                    <div class="wrapoption">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Style: </label>
+                                                <select id="option-border-style">
+                                                    <option value="solid">Solid</option>
+                                                    <option value="dashed">Dashed</option>
+                                                    <option value="dotted">Dotted</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Цвет:</label>
+                                                <div class="colorpicker-wrap">
+                                                    <span class="preview-color" data-value="border-color"></span>
+                                                    <input id="option-border-color" type="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wrapoption">
+                                        <label>Border-size: <span class="value" id="value-option-border-size"></span></label>
+                                        <div id="option-border-size" class="option-slide"></div>
+                                    </div>
+                                    <!-- end опции border-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                <h4 class="panel-title">Background</h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    3333
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    Text: <input type="text" id="option-btn-text">
+                    <!--end аккордион с вкладками-->
                 </div>
                 <div class="col-xs-6">
                   <h2>Результат</h2>
@@ -74,16 +118,22 @@
 
           <section class="code">
             <div class="container">
-              <form action="">
-              <div class="wraparea">
-                <textarea class="" name="" id="html_code" cols="30" rows="10"></textarea>
-                <textarea class="" name="" id="css_code" cols="30" rows="10"></textarea>
-              </div>
-              <div class="text-center">
-                <input type="text" required>
-                <button type="submit">Отправить</button>
-              </div>
-            </form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="wrap-code">
+                            <pre><code id="code-html" class="language-markup"></code></pre>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="wrap-code">
+                            <pre><code id="code-css" class="language-css"></code></pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="text" required>
+                    <button type="submit">Отправить</button>
+                </div>
           </div>
         </section>
 
@@ -93,6 +143,7 @@
     <script src="js/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/vendor/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
     <script src="js/vendor/colorpicker.js"></script>
+    <script src="js/vendor/prism.js" data-manual></script>
     <!--<script src="js/main.min.js"></script>-->
     <script src="source/js/main.js"></script>
 </body>

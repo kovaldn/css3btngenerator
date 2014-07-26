@@ -1,22 +1,22 @@
 (function(){
 
     var app = {
-        /*---переменные---*/
+        //переменные
         var: {
             $btn: $('#result_btn'), //кнопка которую будем менять
             cur_data : {}, //текущие параметры
             //настройки по умолчанию
             default: {
-                'btn_text' : 'Loft Blog',
+                'btn-text' : 'Loft Blog',
                 'font-size': '20px',
                 'color': '#ffffff',
                 'height': 70,
-                'width': 150,
                 'background': '#AC9E91',
-                'border-radius': 15,
-                'border-width': 15,
+                'border-radius': 8,
+                'border-width': 4,
                 'border-color': '#000000',
-                'border-style': 'dotted'
+                'border-style': 'solid',
+                '__btn-class': 'css3-button'
             },                        
             //элементы с которыми будем работаь (бегунки и пр.)
             $btn_text: $('#option-btn-text'),
@@ -27,15 +27,15 @@
         },
         init: function(){
             //текущие параметры = по умолчанию
-            this.var.cur_data = this.var.default;
+            app.var.cur_data = app.var.default;
             //инициализируем бегунки
-            this.var.$border_radius.slider({
-                range: "max",min: 0,max: 40,step: 1,
-                value: this.var.default['border-radius']
+            app.var.$border_radius.slider({
+                range: "min",min: 0,max: 40,step: 1,
+                value: app.var.default['border-radius']
             });
-            this.var.$border_size.slider({
-                range: "max", min: 0,max: 40,step: 1,
-                value: this.var.default['border-width']
+            app.var.$border_size.slider({
+                range: "min", min: 0,max: 40,step: 1,
+                value: app.var.default['border-width']
             });
             //колорпикер
             $('.preview-color').each(function(){
@@ -50,25 +50,20 @@
                     }
                 });
             });
-
+            //применим по умолчанию настройки
+            app.get_html();
+            app.get_css();
+            app.var.$btn.css(app.var.default);
             //навешиваем события
-            this.events();
-            //применим настройки по умолчанию
-            this.set_default();
+            app.events();
         },
         //слушатели событий
         events: function(){
-            this.var.$border_radius.on( "slide", this.option_border_radius);
-            this.var.$border_size.on( "slide", this.option_border_width);
-            this.var.$border_style.on('change', this.option_border_style);
-            this.var.$border_color.on('change', this.option_border_color);
-            this.var.$btn_text.on('keyup', this.option_set_text)
-        },
-        //установка по умолчанию
-        set_default: function(){
-            var options = this.var.default;
-            this.var.$btn.html(options.btn_text).css(options);
-            //val(options['border-color'])
+            app.var.$border_radius.on( "slide", app.option_border_radius);
+            app.var.$border_size.on( "slide", app.option_border_width);
+            app.var.$border_style.on('change', app.option_border_style);
+            app.var.$border_color.on('change', app.option_border_color);
+            app.var.$btn_text.on('keyup', app.option_set_text)
         },
         //изменнеие border-radius
         option_border_radius: function(e, ui){
@@ -90,7 +85,7 @@
             };
             app.var.cur_data['border-width'] = val;
             app.var.$btn.css(css);
-            //app.get_css();
+            app.get_css();
         },
         //изменение border-style
         option_border_style: function(){
@@ -100,7 +95,7 @@
             };
             app.var.cur_data['border-style'] = val;
             app.var.$btn.css(css);
-            //app.get_css();
+            app.get_css();
         },
         //измменение border-color
         option_border_color: function(){
@@ -110,26 +105,49 @@
             };
             app.var.cur_data['border-color'] = val;
             app.var.$btn.css(css);
-            //app.get_css();
+            app.get_css();
         },
         //изменение текста кнопки
         option_set_text: function(){
-            var val = $(this).val();
+            app.var.cur_data['btn-text'] = $(this).val();
+            app.get_html();
+        },
+        //получить html
+        get_html: function(){
+            var val = app.var.cur_data['btn-text'];
             app.var.$btn.text(val);
-            //app.get_heml();
+            $('#code-html').text('<button class="'+ app.var.cur_data['__btn-class'] +'">' + val + '</button>');
+            Prism.highlightAll();
         },
         //получить готовый css
         get_css: function(property, x1, x2, x3, x4){
-
-            //var str = '';
-            /*$.each(this.var.cur_data, function(i, el){
-                $.each(el, function(property, value){
-                    str += property + ': ' + value + ";\n"
-                });
-            });*/
-            console.log(this.var.cur_data);
+            var data = this.var.cur_data;
+            var str = '';
+            if( data['border-width'] > 0 ){
+                str += 'border: ' + data['border-style'] + ' ' + data['border-width'] + 'px ' + data['border-color'] + ";\n";
+            }
+            if(!$.isPlainObject(data['border-radius']) && data['border-radius'] > 0){
+                str += 'border-radius: ' + data['border-radius'] + "px;\n";
+            }else if ($.isPlainObject(data['border-radius'])){
+                str += 'border-radius: ' + data['border-radius'].topleft + "px ";
+                str += data['border-radius'].topright + "px ";
+                str += data['border-radius'].botleft + "px ";
+                str += data['border-radius'].botright + "px;\n";
+            }
+            //console.log(this.var.cur_data);
+            //console.log(str);
+            $('#code-css').text(str);
+            Prism.highlightAll();
         }
     }
 
    app.init();
 }());
+
+$(document).ready(function(){
+    $acc = $('#accordion');
+    $acc.on('shown.bs.collapse', function(){
+        $acc.find('.panel-heading').removeClass('active');
+        $acc.find('.collapse.in').prev('.panel-heading').addClass('active');
+    });
+});
