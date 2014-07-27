@@ -23,9 +23,6 @@ h2{
 .wraparea{
 	text-align: center;
 }
-.wrapoption{
-  position: relative;
-}
 .option{
 
 }
@@ -42,9 +39,6 @@ h2{
     vertical-align: middle;
   }
 }
-.wrap-code{
-
-}
 .panel-heading{
   cursor: pointer;
   background: url(../img/random_grey_variations.png);
@@ -58,7 +52,6 @@ h2{
 }
 .panel-body{
   background: url(../img/irongrip.png);
-  padding-right: 34px;
   label{
     font-family: consolas, monospace;
     font-weight: normal;
@@ -69,4 +62,32 @@ h2{
       text-shadow: 1px 2px 1px #000;
     }
   }
+  .change-advanced{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(../img/1up.png) 0 0 no-repeat;
+    vertical-align: middle;
+    cursor: pointer;
+    float: right;
+    &.show-off{
+      background-position: 0 -25px;
+      display: none;
+    }
+  }
+}
+.tooltip.ch-advanced .tooltip-inner{
+  background-color: #555;
+  border-radius: 3px;
+  border: 1px solid #fff;
+}
+.tooltip.ch-advanced .tooltip-arrow{
+    border-left-color: #fff;
+}
+.advanced-mode{
+    display: none;
+    position: relative;
+    label{
+      font-size: 16px;
+    }
 }

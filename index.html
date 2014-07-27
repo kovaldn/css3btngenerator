@@ -62,8 +62,31 @@
                                 <div class="panel-body">
                                     <!--опции border-->
                                     <div class="wrapoption">
-                                        <label>Border-radius: <span class="value" id="value-option-border-radius"></span></label>
-                                        <div id="option-border-radius" class="option-slide"></div>
+                                        <div class="wrapoption-title">
+                                            <label>Border-radius: <span class="value" data-obj="option-border-radius" id="value-option-border-radius"></span></label>
+                                            <span class="change-advanced show-on" data-fun="option_border_radius_adv" data-show="option-border-radius-adv" data-hide="option-border-radius"  data-toggle="tooltip" data-placement="left" title="Больше возможностей"></span>
+                                            <span class="change-advanced show-off" data-fun="option_border_radius_adv" data-show="option-border-radius" data-hide="option-border-radius-adv"  data-toggle="tooltip" data-placement="left" title="Меньше возможностей"></span>
+                                        </div>
+
+                                        <div id="option-border-radius" class="option-slide" data-obj="option-border-radius"></div>
+
+                                        <div class="advanced-mode" data-obj="option-border-radius-adv">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>top-left: <span class="value" data-name="topleft"></span></label>
+                                                    <div class="option-slide-adv option-border-radius-adv" data-name="topleft"></div>
+                                                    <label>bottom-left: <span class="value" data-name="botleft"></span></label>
+                                                    <div class="option-slide-adv option-border-radius-adv" data-name="botleft"></div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>top-right: <span class="value" data-name="topright"></span></label>
+                                                    <div class="option-slide-adv option-border-radius-adv" data-name="topright"></div>
+                                                    <label>bottom-right: <span class="value" data-name="botright"></span></label>
+                                                    <div class="option-slide-adv option-border-radius-adv" data-name="botright"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                     <div class="wrapoption">
@@ -71,9 +94,15 @@
                                             <div class="col-md-4">
                                                 <label>Style: </label>
                                                 <select id="option-border-style">
-                                                    <option value="solid">Solid</option>
-                                                    <option value="dashed">Dashed</option>
-                                                    <option value="dotted">Dotted</option>
+                                                    <option value="solid">solid </option>
+                                                    <option value="dashed">dashed </option>
+                                                    <option value="dotted">dotted </option>
+                                                    <option value="double">double </option>
+                                                    <option value="groove">groove </option>
+                                                    <option value="hidden">hidden </option>
+                                                    <option value="inset">inset </option>
+                                                    <option value="outset">outset </option>
+                                                    <option value="ridge">ridge </option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
