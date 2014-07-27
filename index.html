@@ -25,11 +25,9 @@
         <title>Лопарев Дмитрий, Д/З №3</title>
 
         <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-        <!-- <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.min.css"> -->
         <link rel="stylesheet" href="css/main.min.css">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <!--<link rel="stylesheet" href="css/ui/jquery-ui.min.css">-->
         <link rel="stylesheet" href="css/ui/jqueryui.theme.min.css">
         <link rel="stylesheet" href="css/colorpicker/colorpicker.css">
         <link rel="stylesheet" href="css/prism.css">
@@ -44,23 +42,93 @@
                     <h2>Параметры</h2>
                     <!--аккордион с вкладками-->
                     <div class="panel-group" id="accordion">
+                        <!--Вклдака Text/font-->
                         <div class="panel panel-default">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                 <h4 class="panel-title">Font/Text</h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse">
+                            <div id="collapseOne" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    Text: <input type="text" id="option-btn-text">
+                                    <div class="wrapoption">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <label>Text:&nbsp;&nbsp;</label><input type="text" id="option-btn-text">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Color:</label>
+                                                <div class="colorpicker-wrap">
+                                                    <span class="preview-color" data-value="color"></span>
+                                                    <input id="option-text-color" type="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wrapoption">
+                                        <!-- шрифты по запросу стандартные font-family -->
+                                        <label>Font-family: </label>
+                                        <select id="option-font-family">
+                                            <option value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</option>
+                                            <option value="'Arial Black', Gadget, sans-serif">'Arial Black', Gadget, sans-serif</option>
+                                            <option value="'Bookman Old Style', serif">'Bookman Old Style', serif</option>
+                                            <option value="'Comic Sans MS', cursive">'Comic Sans MS', cursive</option>
+                                            <option value="'Courier New', Courier, monospace">'Courier New', Courier, monospace</option>
+                                            <option value="Garamond, serif">Garamond, serif</option>
+                                            <option value="Georgia, serif">Georgia, serif</option>
+                                            <option value="Impact, Charcoal, sans-serif">Impact, Charcoal, sans-serif</option>
+                                            <option value="'Lucida Console', Monaco, monospace">'Lucida Console', Monaco, monospace</option>
+                                            <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">'Lucida Sans Unicode', 'Lucida Grande', sans-serif</option>
+                                            <option value="'MS Sans Serif', Geneva, sans-serif">'MS Sans Serif', Geneva, sans-serif</option>
+                                            <option value="'MS Serif', 'New York', sans-serif">'MS Serif', 'New York', sans-serif</option>
+                                            <option value="Symbol, sans-serif">Symbol, sans-serif</option>
+                                            <option value="Tahoma, Geneva, sans-serif">Tahoma, Geneva, sans-serif</option>
+                                            <option value="'Times New Roman', Times, serif">'Times New Roman', Times, serif</option>
+                                            <option value="'Trebuchet MS', Helvetica, sans-serif">'Trebuchet MS', Helvetica, sans-serif</option>
+                                            <option value="Verdana, Geneva, sans-serif">Verdana, Geneva, sans-serif</option>
+                                            <option value="Webdings, sans-serif">Webdings, sans-serif</option>
+                                            <option value="Wingdings, 'Zapf Dingbats', sans-serif">Wingdings, 'Zapf Dingbats', sans-serif</option>
+                                        </select>
+                                    </div>
+                                    <div class="wrapoption">
+                                        <label>Font-size: <span class="value" id="value-option-font-size"></span></label>
+                                        <div id="option-font-size" class="option-slide"></div>
+                                    </div>
+                                    <div class="wrapoption">
+                                        <div><label>Text-shadow:</label>
+
+                                            <div class="slideThree">
+                                                <input type="checkbox" value="" id="option-shadow-onoff">
+                                                <label for="option-shadow-onoff"></label>
+                                            </div>
+
+                                            <div class="colorpicker-wrap hide">
+                                                <span class="preview-color" data-value="shadow.color"></span>
+                                                <input id="option-shadow-color" type="hidden">
+                                            </div>
+                                        </div>
+                                        <div class="row hide">
+                                            <div class="col-md-6">
+                                                <label class="label-sm">pos-x: <span class="value" data-name="posx">0px</span></label>
+                                                <div class="option-slide-adv option-text-shadow-adv" data-name="posx"></div>
+                                                <label class="label-sm">pos-y: <span class="value" data-name="posy">0px</span></label>
+                                                <div class="option-slide-adv option-text-shadow-adv" data-name="posy"></div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                    <label class="label-sm">blur: <span class="value" data-name="blur">0px</span></label>
+                                                    <div class="option-slide-adv option-text-shadow-adv" data-name="blur"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!--@Вклдака Text/font-->
+                        <!--опции border-->
                         <div class="panel panel-default">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                                 <h4 class="panel-title">Border</h4>
                             </div>
-                            <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div id="collapseTwo" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <!--опции border-->
                                     <div class="wrapoption">
                                         <div class="wrapoption-title">
                                             <label>Border-radius: <span class="value" data-obj="option-border-radius" id="value-option-border-radius"></span></label>
@@ -73,22 +141,20 @@
                                         <div class="advanced-mode" data-obj="option-border-radius-adv">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <label>top-left: <span class="value" data-name="topleft"></span></label>
+                                                    <label class="label-sm">top-left: <span class="value" data-name="topleft"></span></label>
                                                     <div class="option-slide-adv option-border-radius-adv" data-name="topleft"></div>
-                                                    <label>bottom-left: <span class="value" data-name="botleft"></span></label>
+                                                    <label class="label-sm">bottom-left: <span class="value" data-name="botleft"></span></label>
                                                     <div class="option-slide-adv option-border-radius-adv" data-name="botleft"></div>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <label>top-right: <span class="value" data-name="topright"></span></label>
+                                                    <label class="label-sm">top-right: <span class="value" data-name="topright"></span></label>
                                                     <div class="option-slide-adv option-border-radius-adv" data-name="topright"></div>
-                                                    <label>bottom-right: <span class="value" data-name="botright"></span></label>
+                                                    <label class="label-sm">bottom-right: <span class="value" data-name="botright"></span></label>
                                                     <div class="option-slide-adv option-border-radius-adv" data-name="botright"></div>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
-
                                     <div class="wrapoption">
                                         <div class="row">
                                             <div class="col-md-4">
@@ -106,7 +172,7 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
-                                                <label>Цвет:</label>
+                                                <label>Color:</label>
                                                 <div class="colorpicker-wrap">
                                                     <span class="preview-color" data-value="border-color"></span>
                                                     <input id="option-border-color" type="hidden">
@@ -118,10 +184,10 @@
                                         <label>Border-size: <span class="value" id="value-option-border-size"></span></label>
                                         <div id="option-border-size" class="option-slide"></div>
                                     </div>
-                                    <!-- end опции border-->
                                 </div>
                             </div>
                         </div>
+                        <!-- @опции border-->
                         <div class="panel panel-default">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
                                 <h4 class="panel-title">Background</h4>
