@@ -7,11 +7,11 @@
             cur_data : {}, //текущие параметры
             //настройки по умолчанию
             default: {
-                'btn-text' : 'Loft Blog',
+                'btn-text': 'ПРИВЕТ лофт блог',//'Loft Blog',
                 'font-size': 20,
                 'font-family': 'Arial, Helvetica, sans-serif',
                 'color': '#ffffff',
-                'height': 70,
+                'padding': '10px 20px',
                 'background': '#AC9E91',
                 'border-radius': 8,
                 'border-width': 4,
@@ -38,7 +38,11 @@
             $border_radius_adv: $('.option-border-radius-adv'),
             $border_size: $('#option-border-size'),
             $border_color: $('#option-border-color'),
-            $border_style: $('#option-border-style')
+            $border_style: $('#option-border-style'),
+            $background_color: $('.option-background-color'),
+            $background_type: $('#type-background'),
+            $input_email: $('#email'),
+            $submit: $('#submit')
         },
         init: function(){
             //текущие параметры = по умолчанию
@@ -91,6 +95,11 @@
             app.var.$text_shadow.on('slide', app.option_text_shadow);
             app.var.$text_shadow_onoff.on('change', app.option_text_shadow_onoff);
             app.var.$text_shadow_color.on('change', app.option_text_shadow_color);
+            //background
+            app.var.$background_color.on('change', app.option_backgound_color);
+            app.var.$background_type.on('change', app.option_backgound_type);
+            //отправка на email
+            app.var.$submit.on('click', app.send_email);
         },
         //обработка всех колорпикеров
         colorpicker: function(){
@@ -232,10 +241,13 @@
             var checked = $(this).prop('checked');
             var $parent = $(this).closest('.wrapoption');
             app.var.cur_data['shadow']['show'] = checked;
-            $parent.find('.hide, .hide0').toggleClass('hide hide0');
+            //$parent.find('.hide, .hide0').toggleClass('hide hide0')
             app.get_css();
             if(!checked){
                 app.var.$btn.css('text-shadow', 'none');
+                $parent.find('.myhide').slideUp('fast');
+            }else{
+                $parent.find('.myhide').slideDown('fast');
             }
         },
         //изменение тени текста
@@ -268,7 +280,37 @@
         option_text_shadow_color: function(){
             app.option_text_shadow(false);
         },
-
+        /*BACKGROUND*/
+        //изменение цвета (обычный + градиент)
+        option_backgound_color:function(){
+            var val = $(this).val();
+            var type = $(this).data('type');
+            if(type == 'color'){
+                var css = {'background': val};
+                app.var.cur_data['background'] = val;
+            }else{
+                var start = app.var.$background_color.filter('[data-type=color-start]').val();
+                var end = app.var.$background_color.filter('[data-type=color-end]').val();
+                var css = {
+                    'background': 'linear-gradient('+ start +', ' + end +')'
+                }
+                app.var.cur_data['background'] = {
+                    start: start,
+                    end: end
+                }
+            }
+            app.var.$btn.css(css);
+            app.get_css();
+        },
+        //изменить тип background
+        option_backgound_type: function(){
+            var val = $(this).val();
+            var $parent = $(this).closest('.panel-body');
+            $parent.find('[data-type]').hide().filter('[data-type=' + val + ']').show();
+            app.get_css();
+        },
+        //
+        /**/
         /**/
         //показать/скрыть раширенный режим
         advanced_mode: function(){
@@ -322,11 +364,44 @@
             if(data.shadow['show'] === true){
                 str += "\t" + 'text-shadow: ' + data.shadow['posx'] + 'px ' + data.shadow['posy'] + 'px ' + data.shadow['blur'] + 'px ' + data.shadow['color'] + ";\n"
             }
+            if(!$.isPlainObject(data['background'])){
+                str += "\t" + 'background: ' + data['background'] + ";\n"
+            }else if ($.isPlainObject(data['background'])){
+                str += "\t" + 'background: -moz-linear-gradient('+ data['background']['start'] +',' + data['background']['end'] + ');\n';
+                str += "\t" + 'background: -ms-linear-gradient('+ data['background']['start'] +',' + data['background']['end'] + ');\n';
+                str += "\t" + 'background: -o-linear-gradient('+ data['background']['start'] +',' + data['background']['end'] + ');\n';
+                str += "\t" + 'background: -webkit-linear-gradient('+ data['background']['start'] +',' + data['background']['end'] + ');\n';
+            }
             //console.log(this.var.cur_data);
             //console.log(str);
             str += '}';
             $('#code-css').text(str);
             Prism.highlightAll();
+        },
+        //отправка на email
+        send_email: function(){
+            var email = app.var.$input_email.val();
+            var html = $('#code-html').text();
+            var css = $('#code-css').text();
+            console.log(html);
+            console.log(css);
+            $.ajax({
+                url: 'send.php',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    email: email,
+                    css: css,
+                    html: html
+                }
+            }).always(function(result) {
+                    if(result.status == 'error'){
+
+                    }else if(result.status == 'ok'){
+
+                    }
+                    console.log(result);
+            });
         }
     }
 

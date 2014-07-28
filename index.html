@@ -47,12 +47,15 @@
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                                 <h4 class="panel-title">Font/Text</h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse in">
+                            <div id="collapseOne" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <div class="wrapoption">
                                         <div class="row">
-                                            <div class="col-md-8">
-                                                <label>Text:&nbsp;&nbsp;</label><input type="text" id="option-btn-text">
+                                            <div class="col-md-2">
+                                                <label>Text:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" id="option-btn-text" class="form-control">
                                             </div>
                                             <div class="col-md-4">
                                                 <label>Color:</label>
@@ -65,28 +68,34 @@
                                     </div>
                                     <div class="wrapoption">
                                         <!-- шрифты по запросу стандартные font-family -->
-                                        <label>Font-family: </label>
-                                        <select id="option-font-family">
-                                            <option value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</option>
-                                            <option value="'Arial Black', Gadget, sans-serif">'Arial Black', Gadget, sans-serif</option>
-                                            <option value="'Bookman Old Style', serif">'Bookman Old Style', serif</option>
-                                            <option value="'Comic Sans MS', cursive">'Comic Sans MS', cursive</option>
-                                            <option value="'Courier New', Courier, monospace">'Courier New', Courier, monospace</option>
-                                            <option value="Garamond, serif">Garamond, serif</option>
-                                            <option value="Georgia, serif">Georgia, serif</option>
-                                            <option value="Impact, Charcoal, sans-serif">Impact, Charcoal, sans-serif</option>
-                                            <option value="'Lucida Console', Monaco, monospace">'Lucida Console', Monaco, monospace</option>
-                                            <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">'Lucida Sans Unicode', 'Lucida Grande', sans-serif</option>
-                                            <option value="'MS Sans Serif', Geneva, sans-serif">'MS Sans Serif', Geneva, sans-serif</option>
-                                            <option value="'MS Serif', 'New York', sans-serif">'MS Serif', 'New York', sans-serif</option>
-                                            <option value="Symbol, sans-serif">Symbol, sans-serif</option>
-                                            <option value="Tahoma, Geneva, sans-serif">Tahoma, Geneva, sans-serif</option>
-                                            <option value="'Times New Roman', Times, serif">'Times New Roman', Times, serif</option>
-                                            <option value="'Trebuchet MS', Helvetica, sans-serif">'Trebuchet MS', Helvetica, sans-serif</option>
-                                            <option value="Verdana, Geneva, sans-serif">Verdana, Geneva, sans-serif</option>
-                                            <option value="Webdings, sans-serif">Webdings, sans-serif</option>
-                                            <option value="Wingdings, 'Zapf Dingbats', sans-serif">Wingdings, 'Zapf Dingbats', sans-serif</option>
-                                        </select>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Font-family: </label>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select id="option-font-family" class="form-control">
+                                                    <option value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</option>
+                                                    <option value="'Arial Black', Gadget, sans-serif">'Arial Black', Gadget, sans-serif</option>
+                                                    <option value="'Bookman Old Style', serif">'Bookman Old Style', serif</option>
+                                                    <option value="'Comic Sans MS', cursive">'Comic Sans MS', cursive</option>
+                                                    <option value="'Courier New', Courier, monospace">'Courier New', Courier, monospace</option>
+                                                    <option value="Garamond, serif">Garamond, serif</option>
+                                                    <option value="Georgia, serif">Georgia, serif</option>
+                                                    <option value="Impact, Charcoal, sans-serif">Impact, Charcoal, sans-serif</option>
+                                                    <option value="'Lucida Console', Monaco, monospace">'Lucida Console', Monaco, monospace</option>
+                                                    <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">'Lucida Sans Unicode', 'Lucida Grande', sans-serif</option>
+                                                    <option value="'MS Sans Serif', Geneva, sans-serif">'MS Sans Serif', Geneva, sans-serif</option>
+                                                    <option value="'MS Serif', 'New York', sans-serif">'MS Serif', 'New York', sans-serif</option>
+                                                    <option value="Symbol, sans-serif">Symbol, sans-serif</option>
+                                                    <option value="Tahoma, Geneva, sans-serif">Tahoma, Geneva, sans-serif</option>
+                                                    <option value="'Times New Roman', Times, serif">'Times New Roman', Times, serif</option>
+                                                    <option value="'Trebuchet MS', Helvetica, sans-serif">'Trebuchet MS', Helvetica, sans-serif</option>
+                                                    <option value="Verdana, Geneva, sans-serif">Verdana, Geneva, sans-serif</option>
+                                                    <option value="Webdings, sans-serif">Webdings, sans-serif</option>
+                                                    <option value="Wingdings, 'Zapf Dingbats', sans-serif">Wingdings, 'Zapf Dingbats', sans-serif</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="wrapoption">
                                         <label>Font-size: <span class="value" id="value-option-font-size"></span></label>
@@ -100,12 +109,12 @@
                                                 <label for="option-shadow-onoff"></label>
                                             </div>
 
-                                            <div class="colorpicker-wrap hide">
+                                            <div class="colorpicker-wrap myhide">
                                                 <span class="preview-color" data-value="shadow.color"></span>
                                                 <input id="option-shadow-color" type="hidden">
                                             </div>
                                         </div>
-                                        <div class="row hide">
+                                        <div class="row myhide">
                                             <div class="col-md-6">
                                                 <label class="label-sm">pos-x: <span class="value" data-name="posx">0px</span></label>
                                                 <div class="option-slide-adv option-text-shadow-adv" data-name="posx"></div>
@@ -122,7 +131,7 @@
                             </div>
                         </div>
                         <!--@Вклдака Text/font-->
-                        <!--опции border-->
+                        <!--Вкладка border-->
                         <div class="panel panel-default">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                                 <h4 class="panel-title">Border</h4>
@@ -157,9 +166,11 @@
                                     </div>
                                     <div class="wrapoption">
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <label>Style: </label>
-                                                <select id="option-border-style">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <select id="option-border-style" class="form-control">
                                                     <option value="solid">solid </option>
                                                     <option value="dashed">dashed </option>
                                                     <option value="dotted">dotted </option>
@@ -171,7 +182,7 @@
                                                     <option value="ridge">ridge </option>
                                                 </select>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <label>Color:</label>
                                                 <div class="colorpicker-wrap">
                                                     <span class="preview-color" data-value="border-color"></span>
@@ -187,17 +198,69 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- @опции border-->
+                        <!-- @вкладка border-->
+                        <!--вкладка Background-->
                         <div class="panel panel-default">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
                                 <h4 class="panel-title">Background</h4>
                             </div>
-                            <div id="collapseThree" class="panel-collapse collapse">
+                            <div id="collapseThree" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    3333
+                                    <div class="wrapoption">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label>Background:</label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select id="type-background" class="form-control">
+                                                    <option value="color">Color</option>
+                                                    <option value="gradient">Gradient</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wrapoption" data-type="color">
+                                        <div class="row">
+                                            <div class="col-md-2 col-md-offset-1">
+                                                <label class="label-sm">Color:</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="colorpicker-wrap">
+                                                    <span class="preview-color" data-value="background"></span>
+                                                    <input class="option-background-color" data-type="color" type="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wrapoption myhide" data-type="gradient">
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <label class="label-sm">Color start:</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="colorpicker-wrap">
+                                                    <span class="preview-color" data-value="background"></span>
+                                                    <input class="option-background-color" data-type="color-start" type="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>&nbsp;</div>
+                                        <div class="row">
+                                            <div class="col-md-3 col-md-offset-1">
+                                                <label class="label-sm">Color end:</label>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="colorpicker-wrap">
+                                                    <span class="preview-color" data-value="background"></span>
+                                                    <input class="option-background-color" data-type='color-end' type="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!--@вкладка Background-->
                     </div>
                     <!--end аккордион с вкладками-->
                 </div>
@@ -225,16 +288,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center">
-                    <input type="text" required>
-                    <button type="submit">Отправить</button>
+                <div class="wrap_control">
+                    <input class="form-control" type="text" id="email" placeholder="Отправить на email">
+                    <button class="btn btn-success" type="button" id="submit">Отправить</button>
                 </div>
           </div>
         </section>
-
-      </div>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-      <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
+      <div class = "empty"></div>
+    </div>
+    <footer>
+        Dmitry Loparev, CSS3 Button Generetor
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="js/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/vendor/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
     <script src="js/vendor/colorpicker.js"></script>

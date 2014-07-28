@@ -5,6 +5,31 @@
 body{
 	font-family: @myr;
     background: url(../img/irongrip.png);
+    height:100%;
+    overflow-x: hidden;
+}
+html {
+  height:100%;
+}
+body {
+
+}
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  overflow: hidden;
+  .empty {
+    position: relative;
+    height: 20px;
+  }
+}
+footer{
+  margin: -20px;
+  text-align: center;
+  color: #656569;
+  text-shadow: 1px 1px 1px #000;
 }
 h1{
 	text-align: center;
@@ -13,9 +38,6 @@ h2{
 	text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-select{
-  padding: 2px 5px;
 }
 .maincontent{
 	border-bottom: 5px solid #ccc;
@@ -67,6 +89,9 @@ select{
       text-shadow: 1px 2px 1px #000;
     }
   }
+  .wrapoption-title{
+    position: relative;
+  }
   .change-advanced{
     display: inline-block;
     width: 25px;
@@ -74,7 +99,9 @@ select{
     background: url(../img/1up.png) 0 0 no-repeat;
     vertical-align: middle;
     cursor: pointer;
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
     &.show-off{
       background-position: 0 -25px;
       display: none;
@@ -100,11 +127,7 @@ select{
     display: none;
     position: relative;
 }
-#option-btn-text{
-  padding: 2px 5px;
-  width: 250px;
-}
-
+.myhide{  display: none; }
 /* .slideThree */
 .slideThree {
   width: 80px;
@@ -157,3 +180,14 @@ input[type=checkbox] {
 }
 }
 /* end .slideThree */
+
+.wrap_control{
+  margin: 60px auto 30px auto;
+  text-align: center;
+  width: 360px;
+  #email{
+    width: 250px;
+    display: inline-block;
+    height: 31px;
+  }
+}
