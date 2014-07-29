@@ -45,7 +45,22 @@ gulp.task('less', function () {
 	}        
 });
 
-gulp.task('js', function() {
+gulp.task('css', function(){
+    gulp.src('css/prism.css')
+    .pipe(minifycss())
+    .pipe(rename('prism.min.css'))
+    .pipe(gulp.dest('css'));
+});
+
+gulp.task('js', function(){
+    gulp.src('source/js/main.js')
+        .pipe(concat("main.min.js"))
+        .pipe(uglify({mangle: true}).on('error', gutil.log))
+        .pipe(gulp.dest('js'));
+});
+
+
+gulp.task('js0', function() {
     gulp.src(sourceJS + '/main.js')
         .pipe(concat("main.min.js"))
         //.pipe(uglify({mangle: true}).on('error', gutil.log))

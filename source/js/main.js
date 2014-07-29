@@ -396,6 +396,7 @@
             }
             var html = $('#code-html').text();
             var css = $('#code-css').text();
+            app.var.$submit.button('loading');
             $.ajax({
                 url: 'send.php',
                 type: 'POST',
@@ -409,10 +410,33 @@
         },
         //функция которая вызывается после ajax или если при первичной проверке на js
         show_msg_after_email: function(result){
+            app.var.$submit.button('reset');
+            var param = {
+               bad: ['Да ты гонишь мне!', 'Че-то здесь не так...', 'Не дерзи!', 'Да ты упертый чтоли?', 'Да ты упоротый чтоли?', 'Опять балуешься?', 'Иди отдохни'],
+               bad_img: [0, -70, -158, -243, -339],
+               good: ['Красава', 'Все чики-пуки', 'А у нас все пучком'],
+               good_img: [13, -70, -140]
+            };
+            function rand_el(ar){
+                var res = ar[Math.round(Math.random()*(ar.length-1))];
+                return res;
+            };
+            var $obj = $('#msg').show();
             if(result.status == 'error'){
-
+                var msg = rand_el(param.bad) + '<div class="msg_error">(не правильный email)</div>';
+                var bg_pos = rand_el(param.bad_img);
+                $obj.addClass('error').removeClass('ok');
+                app.var.$input_email.addClass('error').removeClass('ok');
+                $obj.find('.msg_text').html(msg);
+                $obj.find('.msg_img').css('background-position-y', bg_pos + 'px');
             }else if(result.status == 'ok'){
-
+                var msg = rand_el(param.good) + '<div class="msg_ok">(Письмо отправлено)</div>';
+                var bg_pos = rand_el(param.good_img);
+                $obj.addClass('ok').removeClass('error');
+                app.var.$input_email.addClass('ok').removeClass('error');
+                $obj.find('.msg_text').html(msg);
+                $obj.find('.msg_img').css('background-position-y', bg_pos + 'px');
+                app.var.$input_email.val('');
             }
             console.log(result);
         }

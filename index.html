@@ -29,8 +29,8 @@
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <link rel="stylesheet" href="css/ui/jqueryui.theme.min.css">
-        <link rel="stylesheet" href="css/colorpicker/colorpicker.css">
-        <link rel="stylesheet" href="css/prism.css">
+        <link rel="stylesheet" href="css/colorpicker/colorpicker.min.css">
+        <link rel="stylesheet" href="css/prism.min.css">
 </head>
 <body>
         <div class = "wrapper">
@@ -288,9 +288,17 @@
                         </div>
                     </div>
                 </div>
+                <div id="msg">
+                    <table>
+                        <tr>
+                            <td><div class="msg_img"></div></td>
+                            <td><div class="msg_text"></div></td>
+                        </tr>
+                    </table>
+                </div>
                 <div class="wrap_control">
                     <input class="form-control" type="text" id="email" placeholder="Отправить на email">
-                    <button class="btn btn-success" type="button" id="submit">Отправить</button>
+                    <button class="btn btn-success" type="button" id="submit" data-loading-text="Sending...">Отправить</button>
                 </div>
           </div>
         </section>
@@ -303,9 +311,8 @@
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
     <script src="js/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="js/vendor/jquery-ui-1.11.0.custom/jquery-ui.min.js"></script>
-    <script src="js/vendor/colorpicker.js"></script>
-    <script src="js/vendor/prism.js" data-manual></script>
-    <!--<script src="js/main.min.js"></script>-->
-    <script src="source/js/main.js"></script>
+    <script src="js/vendor/colorpicker.min.js"></script>
+    <script src="js/vendor/prism.min.js" data-manual></script>
+    <script src="js/main.min.js"></script>
 </body>
   </html>

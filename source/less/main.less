@@ -1,13 +1,13 @@
 @import "mixins";
-
 @font-face {
   font-family: Quasith-Regular;
   src: url(fonts/Quasith-Regular.otf)  format('opentype');
 }
 
+@font_q: Quasith-Regular, sans-serif;
 
 body{
-	font-family: Quasith-Regular;
+	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
     background: url(../img/irongrip.png);
     height:100%;
     overflow-x: hidden;
@@ -34,15 +34,13 @@ footer{
 }
 h1{
 	text-align: center;
+    text-shadow: 3px 3px 3px #000;
+    font-family: @font_q;
 }
 h2{
 	text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-.maincontent{
-	border-bottom: 5px solid #ccc;
-	padding-bottom: 50px;
 }
 .wrapbtn{
 	margin-top: 50px;
@@ -50,9 +48,6 @@ h2{
 }
 .wraparea{
 	text-align: center;
-}
-.option{
-
 }
 .colorpicker-wrap{
   display: inline-block;
@@ -76,6 +71,8 @@ h2{
   h4{
     font-size: 20px;
     color: #ededed;
+    text-shadow: 3px 3px 3px #000;
+    font-family: @font_q;
   }
 }
 .panel-body{
@@ -183,12 +180,55 @@ input[type=checkbox] {
 /* end .slideThree */
 
 .wrap_control{
-  margin: 60px auto 30px auto;
+  margin: 10px auto 50px auto;
   text-align: center;
   width: 360px;
+  position: relative;
   #email{
     width: 250px;
     display: inline-block;
     height: 31px;
+    &.error{
+        border: 1px solid #d61e18;
+        box-shadow: 0 0 5px #d61e18;
+    }
   }
+}
+#msg{
+  display: none;
+  height: 65px;
+  text-align: center;
+  table{margin: 0 auto;}
+  td{vertical-align: middle;}
+  .msg_img{
+    width: 60px;
+    height: 65px;
+    background-size: 57px;
+  }
+  .msg_text{
+    border-radius: 10px;
+    font-size: 18px;
+    width: 281px;
+    vertical-align: top;
+    border: 1px solid #ccc;
+    padding: 3px 5px 3px 10px;
+    text-align: left;
+    margin-left: 10px;
+  }
+  &.error{
+    .msg_img{background: url(../img/troll.png) 0 0 no-repeat;}
+  }
+  &.ok{
+    .msg_img{background: url(../img/troll2.png) 0 0 no-repeat;}
+  }
+}
+.msg_error{
+  font-size: 14px;
+  color: #FF8480;
+  text-shadow: 1px 2px 1px #000;
+}
+.msg_ok{
+  font-size: 14px;
+  color: #89E226;
+  text-shadow: 1px 2px 1px #000;
 }
