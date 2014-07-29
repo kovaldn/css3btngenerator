@@ -1,18 +1,19 @@
 @import "mixins";
-@import "fonts/MyriadPro-Regular/styles.css";
-@myr: 'MyriadPro-Regular', Tahoma;
+
+@font-face {
+  font-family: Quasith-Regular;
+  src: url(fonts/Quasith-Regular.otf)  format('opentype');
+}
+
 
 body{
-	font-family: @myr;
+	font-family: Quasith-Regular;
     background: url(../img/irongrip.png);
     height:100%;
     overflow-x: hidden;
 }
 html {
   height:100%;
-}
-body {
-
 }
 .wrapper {
   position: relative;

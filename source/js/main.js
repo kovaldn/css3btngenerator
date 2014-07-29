@@ -7,7 +7,7 @@
             cur_data : {}, //текущие параметры
             //настройки по умолчанию
             default: {
-                'btn-text': 'ПРИВЕТ лофт блог',//'Loft Blog',
+                'btn-text': 'Loft Blog',
                 'font-size': 20,
                 'font-family': 'Arial, Helvetica, sans-serif',
                 'color': '#ffffff',
@@ -307,6 +307,14 @@
             var val = $(this).val();
             var $parent = $(this).closest('.panel-body');
             $parent.find('[data-type]').hide().filter('[data-type=' + val + ']').show();
+            if(val == 'color'){
+                app.var.cur_data['background'] = app.var.cur_data['background']['start'];
+            }else{
+                app.var.cur_data['background'] = {
+                    start: app.var.cur_data['background'],
+                    end: app.var.cur_data['background']
+                }
+            }
             app.get_css();
         },
         //
@@ -380,11 +388,14 @@
         },
         //отправка на email
         send_email: function(){
-            var email = app.var.$input_email.val();
+            var email = $.trim(app.var.$input_email.val());
+            //микровалидация на js
+            if(email == '' || email.indexOf('@') === -1){
+                app.show_msg_after_email({status: 'error'});
+                return false;
+            }
             var html = $('#code-html').text();
             var css = $('#code-css').text();
-            console.log(html);
-            console.log(css);
             $.ajax({
                 url: 'send.php',
                 type: 'POST',
@@ -394,14 +405,16 @@
                     css: css,
                     html: html
                 }
-            }).always(function(result) {
-                    if(result.status == 'error'){
+            }).always(app.show_msg_after_email);
+        },
+        //функция которая вызывается после ajax или если при первичной проверке на js
+        show_msg_after_email: function(result){
+            if(result.status == 'error'){
 
-                    }else if(result.status == 'ok'){
+            }else if(result.status == 'ok'){
 
-                    }
-                    console.log(result);
-            });
+            }
+            console.log(result);
         }
     }
 
