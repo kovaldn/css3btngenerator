@@ -11,7 +11,7 @@
                 'font-size': 20,
                 'font-family': 'Arial, Helvetica, sans-serif',
                 'color': '#ffffff',
-                'padding': '10px 20px',
+                'padding': 15,
                 'background': '#AC9E91',
                 'border-radius': 8,
                 'border-width': 4,
@@ -41,6 +41,7 @@
             $border_style: $('#option-border-style'),
             $background_color: $('.option-background-color'),
             $background_type: $('#type-background'),
+            $padding: $('#option-padding'),
             $input_email: $('#email'),
             $submit: $('#submit')
         },
@@ -65,7 +66,12 @@
             $('#value-option-font-size').text(app.var.default['font-size'] + 'px');
             app.var.$text_shadow.slider({
                 range: "min", min: -10, max: 10, step: 1
-            })
+            });
+            app.var.$padding.slider({
+                range: "min", min: 0, max: 50, step: 1,
+                value: app.var.default['padding']
+            });
+            $('#value-option-padding').text(app.var.default['padding'] + 'px');
             //доп.бегунки
             $('.option-slide-adv').slider({ range: 'min' });
             //колорпикеры
@@ -98,6 +104,8 @@
             //background
             app.var.$background_color.on('change', app.option_backgound_color);
             app.var.$background_type.on('change', app.option_backgound_type);
+            //geometry
+            app.var.$padding.on('slide', app.option_padding);
             //отправка на email
             app.var.$submit.on('click', app.send_email);
         },
@@ -318,7 +326,17 @@
             app.get_css();
         },
         //
-        /**/
+        /*GEOMETRY*/
+        option_padding: function(e, ui){
+            var val = ui.value;
+            $('#value-option-padding').text(val + 'px');
+            var css = {
+                'padding': val + 'px'
+            };
+            app.var.cur_data['padding'] = val;
+            app.var.$btn.css(css);
+            app.get_css();
+        },
         /**/
         //показать/скрыть раширенный режим
         advanced_mode: function(){
@@ -380,6 +398,7 @@
                 str += "\t" + 'background: -o-linear-gradient('+ data['background']['start'] +',' + data['background']['end'] + ');\n';
                 str += "\t" + 'background: -webkit-linear-gradient('+ data['background']['start'] +',' + data['background']['end'] + ');\n';
             }
+            str += "\t" + 'padding: ' + data['padding'] + "px;\n";
             //console.log(this.var.cur_data);
             //console.log(str);
             str += '}';
@@ -438,7 +457,7 @@
                 $obj.find('.msg_img').css('background-position-y', bg_pos + 'px');
                 app.var.$input_email.val('');
             }
-            console.log(result);
+            //console.log(result);
         }
     }
 

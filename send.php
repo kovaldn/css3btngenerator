@@ -26,6 +26,7 @@ if(isset($_POST['email'])){
 
 function email($email, $subject, $text, $file){
 	$mail = new PHPMailer;
+	$mail->CharSet = 'UTF-8';
 	$mail->From = 'css3generator@deeman313.com';
 	$mail->FromName = 'css 3 button generator';
 	$mail->addAddress($email);
